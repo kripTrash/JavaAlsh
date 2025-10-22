@@ -4,11 +4,21 @@ import org.example.user.UserAccount;
 import java.util.*;
 
 public class Main {
+    private static Map<String, UserAccount> users = new HashMap<>();
+    public static void AddUser(String id, String name, int x, int y)
+    {
+        users.put(id, new UserAccount(id, name, x, y));
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        Map<String, UserAccount> users = new HashMap<>();
-        users.put("1233", new UserAccount("1233", "Семен", 7.5, 1100));
 
+
+        users.put("1233", new UserAccount("1233", "Семен", 7.5, 1100));
+        for(int i = 0; i < 10; i++) {
+            // ID как число в строке: "0", "1", "2"...
+            AddUser(String.valueOf(i), "Ivan " + i, i + 1, 1100);
+        }
         UserAccount acc = null;
         while (acc == null) {
             System.out.print("Account ID: ");
