@@ -7,8 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Map<String, UserAccount> users = new HashMap<>();
-        users.put("123", new UserAccount("123", "Riot", 2.5));
-        users.put("999", new UserAccount("999", "Ivan Ivanov", 3.0));
+        users.put("1233", new UserAccount("1233", "Семен", 7.5, 1100));
 
         UserAccount acc = null;
         while (acc == null) {

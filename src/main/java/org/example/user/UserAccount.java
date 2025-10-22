@@ -12,24 +12,24 @@ public class UserAccount {
     double rate;
     List<BankTransaction> history = new ArrayList<>();
 
-    public UserAccount(String id, String n, double r) {
+    public UserAccount(String id, String n, double r, double m) {
         accId = id;
         name = n;
         rate = r;
-        money = 0;
+        money = m;
     }
 
     public boolean addMoney(double a) {
         if (a <= 0) return false;
         money += a;
-        history.add(new BankTransaction("Deposit", a));
+        history.add(new BankTransaction('+', a, money, String.format("Add money for %s", name)));
         return true;
     }
 
     public boolean takeMoney(double a) {
         if (a <= 0 || a > money) return false;
         money -= a;
-        history.add(new BankTransaction("Withdraw", a));
+        history.add(new BankTransaction('-', a, money, String.format("Take money for %s", name)));
         return true;
     }
 
@@ -38,7 +38,7 @@ public class UserAccount {
         System.out.println("Name: " + name);
         System.out.println("ID: " + accId);
         System.out.println("Rate: " + rate + "%");
-        System.out.println("Money: " + money);
+        System.out.println("Money: " + money + "руб.");
         System.out.println("\nHistory:");
         if (history.isEmpty()) {
             System.out.println("No history.");
