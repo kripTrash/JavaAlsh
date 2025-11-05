@@ -11,13 +11,13 @@ public class FileOutput {
         try {
             Path pathNorm = Paths.get(path);
             if (!Files.exists(pathNorm)) {
-                System.out.println("Файл не найден: " + path);
+                //System.out.println("Файл не найден: " + path);
                 return List.of();
             }
 
             return Files.readAllLines(pathNorm);
         } catch (IOException e) {
-            System.out.println(e.toString());
+            System.out.println("Ошибка при чтении: " + e.toString());
         }
         return List.of();
     }

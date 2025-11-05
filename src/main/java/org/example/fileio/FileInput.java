@@ -10,11 +10,10 @@ public class FileInput {
     public static boolean writeFile(String fileName, String text) {
         try {
             Path path = Paths.get(fileName);
-            Files.createDirectories(path.getParent());
-            Files.write(path, text.getBytes(), StandardOpenOption.APPEND);
+            Files.write(path, text.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
             return true;
         } catch (IOException e) {
-            System.out.println(e.toString());
+            System.out.println("Ошибка при записи: " + e.toString());
         }
         return false;
     }

@@ -18,7 +18,7 @@ public class BankTransaction {
     }
 
     public String toString() {
-        return "(" + time + ") " + "[ " + type + " ]" + " Amount: " + String.format("%.2f", amount) + "; balance: " + String.format("%.2f", balance) + "; desc: " + description;
+        return "(" + time + ") " + "[ " + type + " ]" + " Amount: " + String.format("%.2f", amount) + "; balance: " + String.format("%.2f", balance) + "; desc: " + description + "\n";
     }
 }
 
